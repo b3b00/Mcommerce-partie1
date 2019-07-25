@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class ProduitGratuitException extends RuntimeException {
 
+    private static final long serialVersionUID = 1L;
+
     public ProduitGratuitException(String s) {
         super(s);
     }
