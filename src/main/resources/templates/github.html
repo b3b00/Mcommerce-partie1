@@ -10,7 +10,7 @@
         <th:block th:each="event : ${events}">
             <tr>
                 <td th:text="${event.id}"></td>
-                <td th:text="${event.type}"></td>
+                <td th:text="${event.eventType}"></td>
                 <td th:text="${event.date}"></td>
                 <td><textarea th:utext="${event.decode}"></textarea></td>
             </tr>

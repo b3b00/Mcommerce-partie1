@@ -23,7 +23,7 @@ public class GitHubEvent {
 
     private Date date;
 
-    private String type;
+    private String eventType;
 
     public String getDecode() {
         try {
@@ -34,12 +34,12 @@ public class GitHubEvent {
         }
     }
 
-    public String getType() {
-        return type;
+    public String getEventType() {
+        return eventType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEventType(String type) {
+        this.eventType = type;
     }
 
     public int getId() {

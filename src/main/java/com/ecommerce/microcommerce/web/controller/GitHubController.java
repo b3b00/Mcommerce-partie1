@@ -41,10 +41,10 @@ public class GitHubController {
     public void hook(@RequestBody String payload, @RequestHeader Map<String, String> headers) {
         String eventType = headers.get("X-GitHub-Event");
         GitHubEvent event = new GitHubEvent();
-        event.setType(eventType);
+        event.setEventType(eventType);
         event.setPayload(payload);
         event.setDate(new Date());
-        System.out.println("github event : "+event.getDecode());
+        System.out.println("github event ["+eventType+"] : "+event.getDecode());
         githubdao.save(event);
     }
 
