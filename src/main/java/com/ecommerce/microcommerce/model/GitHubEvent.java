@@ -2,6 +2,7 @@ package com.ecommerce.microcommerce.model;
 
 import org.hibernate.validator.constraints.Length;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -21,6 +22,16 @@ public class GitHubEvent {
     private String payload;
 
     private Date date;
+
+    public String Decoded() {
+        try {
+            String result = java.net.URLDecoder.decode(getPayload(), StandardCharsets.UTF_8.name());
+            return result;
+        }
+        catch(Exception e) {
+            return "decoding error";
+        }
+    }
 
     public int getId() {
         return id;
