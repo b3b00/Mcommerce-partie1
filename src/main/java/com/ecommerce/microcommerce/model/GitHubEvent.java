@@ -23,7 +23,7 @@ public class GitHubEvent {
 
     private Date date;
 
-    public String Decoded() {
+    public String getDecode() {
         try {
             String result = java.net.URLDecoder.decode(getPayload(), StandardCharsets.UTF_8.name());
             return result;
