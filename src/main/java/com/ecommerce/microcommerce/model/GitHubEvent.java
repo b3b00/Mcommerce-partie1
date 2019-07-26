@@ -16,6 +16,7 @@ public class GitHubEvent {
     @GeneratedValue
     private int id;
 
+    @Column(length = 16000)
     private String payload;
 
     private Date date;
