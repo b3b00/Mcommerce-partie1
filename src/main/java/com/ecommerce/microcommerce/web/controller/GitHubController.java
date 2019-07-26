@@ -38,9 +38,10 @@ public class GitHubController {
 
     @PostMapping(value = "/github/")
 
-    public void hook(@RequestBody String payload) {
-        
+    public void hook(@RequestBody String payload, @RequestHeader Map<String, String> headers) {
+        String eventType = headers.get("X-GitHub-Event");
         GitHubEvent event = new GitHubEvent();
+        event.setType(eventType);
         event.setPayload(payload);
         event.setDate(new Date());
         System.out.println("github event : "+event.getDecode());
