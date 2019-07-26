@@ -2,7 +2,9 @@ package com.ecommerce.microcommerce.web.controller;
 
 import java.util.List;
 
+import com.ecommerce.microcommerce.dao.GitHubDao;
 import com.ecommerce.microcommerce.dao.ProductDao;
+import com.ecommerce.microcommerce.model.GitHubEvent;
 import com.ecommerce.microcommerce.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class MainController {
 
     @Autowired
     ProductDao productDao;
+    @Autowired
+    GitHubDao githubdao;
 
     private String RefreshIndex(Model model) {
         List<Product> products = productDao.findAll();
@@ -43,6 +47,13 @@ public class MainController {
     public String Add(Model model,@ModelAttribute Product product) {
         productDao.save(product);
         return RefreshIndex(model);
+    }
+
+    @GetMapping("/github/show")
+    public String github(Model model) {
+        List<GitHubEvent> events = githubdao.findByOrderByDate();
+        model.addAttribute("events", events);
+        return "github";
     }
 
 }
