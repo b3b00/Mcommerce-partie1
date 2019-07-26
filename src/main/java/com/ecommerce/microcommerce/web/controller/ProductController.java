@@ -2,7 +2,6 @@ package com.ecommerce.microcommerce.web.controller;
 
 
 import com.ecommerce.microcommerce.dao.ProductDao;
-import com.ecommerce.microcommerce.model.Data;
 import com.ecommerce.microcommerce.model.Product;
 import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
@@ -31,10 +30,6 @@ public class ProductController {
     @Autowired
     private ProductDao productDao;
 
-    private void test() {
-        Data data = new Data();
-        // String f = data.getFirst();
-    }
 
     // Récupérer la liste des produits
 
