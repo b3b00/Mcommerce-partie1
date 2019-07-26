@@ -5,7 +5,11 @@
 
     <body>
     <h1 th:text="${title}"></h1>
-
+    <table>
+    <th:block th:each="product : ${products}">
+        <tr><td th:text="${product.id}"></td><td th:text="${product.nom}"></td><td th:utext="${product.prix}"></td></tr>
+    </th:block>
+    </table>
 
     </body>
 </html>
